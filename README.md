@@ -40,7 +40,22 @@ command. See below.
 
 ## Install
 
-Requires macOS 14 or later and Xcode (or the Command Line Tools with Swift 6).
+Requires macOS 14 or later (Apple Silicon or Intel).
+
+### Download
+
+1. Download `Nexus.dmg` from the [latest release](https://github.com/harshitgarg02/nexus/releases/latest).
+2. Open the DMG and drag **Nexus** into **Applications**.
+3. The app isn't notarized, so the first launch is blocked by Gatekeeper. Right-click **Nexus** → **Open** → **Open**,
+   or run:
+   ```bash
+   xattr -dr com.apple.quarantine /Applications/Nexus.app
+   ```
+4. Press **⌥Space** to open the launcher. Nexus runs from the menu bar, with no Dock icon.
+
+### Build from source
+
+Needs Xcode (or the Command Line Tools with Swift 6).
 
 ```bash
 make install     # build, sign, copy to /Applications, launch
@@ -63,8 +78,8 @@ IDENTITY := My Certificate Name
 BUNDLE_ID := com.yourname.nexus   # optional; it also namespaces the Keychain items
 ```
 
-The app isn't notarized (that needs a paid Apple Developer account), so a build you share shows a Gatekeeper warning:
-right-click → Open, or run `xattr -dr com.apple.quarantine /Applications/Nexus.app`.
+The app isn't notarized (that needs a paid Apple Developer account), so downloaded builds show a Gatekeeper warning
+(see [Download](#download)).
 
 **Accessibility** is needed only to paste into other apps (Nexus sends ⌘V for you). Without it, items are copied instead.
 
