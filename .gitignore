@@ -1,0 +1,7 @@
+.build/
+build/
+.swiftpm/
+*.xcodeproj
+Makefile.local
+.DS_Store
+dist/
